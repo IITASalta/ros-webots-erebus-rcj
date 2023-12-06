@@ -1,6 +1,6 @@
-##Cheatsheet
+## Cheatsheet
 
-```rqt_graph```: Abre prgrama para ver los nodos, topics, etc
+```rqt_graph```: Abre programa para ver los nodos, topics, etc
 
 ```ros2 node list```: lista de los nodos activos
 
