@@ -24,23 +24,24 @@ https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
 Instalar el que dice "ros-humble-desktop" y el que dice "ros-dev-tools". No hace falta instalar "ros-humble-ros-base".
 La instalación va a tardar un cacho y son como 2 GB de datos.
 
+#### 4. Hacer source
 
-#### 4. Instalar webots-ros2
-
-Seguir las instrucciones:
-
-https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html#tasks
-
-Después ir al directorio de home y abrir el archivo .bashrc. Agregar al final la siguientes líneas:
+directorio de home y abrir el archivo .bashrc. Agregar al final la siguientes líneas:
 
 source /opt/ros/humble/setup.bash
 export WEBOTS_HOME=/usr/local/webots
 
 Cerrar la terminal y volverla a abrir.
 
-#### 5. Instalar ejemplo de turtlebot en webots
+#### 5. Instalar webots-ros2
 
-Seguir las instrucciones de este sitio:
+Seguir las instrucciones que dicen 'Install webots_ros2 from sources':
+
+https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html#tasks
+
+#### 6. Instalar ejemplo de turtlebot en webots
+
+Seguir las instrucciones de este sitio pero la del cartelito que dice 'or compile the package from source':
 
 https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3
 
