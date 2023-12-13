@@ -161,3 +161,7 @@ cython_debug/
 
 # VS Code
 .vscode
+
+#ROS Workspace install files
+ros2_ws/install/
+ros2_ws/log/
