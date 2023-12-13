@@ -100,21 +100,6 @@ def generate_launch_description():
     navigation_nodes = []
     os.environ['TURTLEBOT3_MODEL'] = 'burger'
     
-    nav2_map = os.path.join(package_dir, 'resource', 'turtlebot3_burger_example_map.yaml')
-    nav2_params = os.path.join(package_dir, 'resource', 'nav2_params.yaml')
-
-    
-    if 'turtlebot3_navigation2' in get_packages_with_prefixes():
-        turtlebot_navigation = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(
-                get_package_share_directory('turtlebot3_navigation2'), 'launch', 'navigation2.launch.py')),
-            launch_arguments=[
-                ('map', nav2_map),
-                ('params_file', nav2_params),
-                ('use_sim_time', use_sim_time),
-            ],
-            condition=launch.conditions.IfCondition(use_nav))
-        navigation_nodes.append(turtlebot_navigation)
     
 
     # SLAM
@@ -129,6 +114,7 @@ def generate_launch_description():
         navigation_nodes.append(turtlebot_slam)
 
     # Wait for the simulation to be ready to start navigation nodes
+    
     waiting_nodes = WaitForControllerConnection(
         target_driver=turtlebot_driver,
         nodes_to_start=navigation_nodes + ros_control_spawners

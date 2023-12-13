@@ -18,25 +18,22 @@ BURGER_MAX_ANG_VEL = 2.84
 WAFFLE_MAX_LIN_VEL = 0.26
 WAFFLE_MAX_ANG_VEL = 1.82
 
-LIN_VEL_STEP_SIZE = 0.01
-ANG_VEL_STEP_SIZE = 0.1
-
 TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
 
 msg = """
-Control Your TurtleBot3!
+Controlar TurtleBot3
 ---------------------------
-Moving around:
+Para moverse:
         w
-   a    s    d
-        x
+   a         d
+        s
 
-w/x : increase/decrease linear velocity (Burger : ~ 0.22, Waffle and Waffle Pi : ~ 0.26)
-a/d : increase/decrease angular velocity (Burger : ~ 2.84, Waffle and Waffle Pi : ~ 1.82)
+w/s : adelante y atrás
+a/d : girar en el lugar
 
-space key, s : force stop
+space key, x : parar
 
-CTRL-C to quit
+CTRL-C para salir
 """
 
 e = """
@@ -112,8 +109,6 @@ def main():
     pub = node.create_publisher(Twist, 'cmd_vel', qos)
 
     status = 0
-    target_linear_velocity = 0.0
-    target_angular_velocity = 0.0
     control_linear_velocity = 0.0
     control_angular_velocity = 0.0
 
