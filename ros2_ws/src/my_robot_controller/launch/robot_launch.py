@@ -61,6 +61,16 @@ def generate_launch_description():
         arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'base_footprint'],
     )
 
+    rviz_config_dir = os.path.join(get_package_share_directory('turtlebot3_cartographer'),
+                                   'rviz', 'tb3_cartographer.rviz')
+    rviz = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config_dir],
+            parameters=[{'use_sim_time': use_sim_time}],
+            output='screen')
+
     # ROS control spawners
     controller_manager_timeout = ['--controller-manager-timeout', '50']
     controller_manager_prefix = 'python.exe' if os.name == 'nt' else ''
@@ -139,6 +149,8 @@ def generate_launch_description():
 
         turtlebot_driver,
         waiting_nodes,
+
+        #rviz,
 
         # This action will kill all nodes once the Webots simulation has exited
         launch.actions.RegisterEventHandler(
